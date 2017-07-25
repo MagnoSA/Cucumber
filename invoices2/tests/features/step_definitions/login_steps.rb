@@ -6,10 +6,10 @@ Dado(/^que eu tenho um usuario adm com os seguintes atributos:$/) do |table|
 end
 
 Quando(/^faço login$/) do
-  login = LoginPage.new
+  @login = LoginPage.new
 
-  login.load
-  login.with(@user, @pwd)
+  @login.load
+  @login.with(@user, @pwd)
 end
 
 Então(/^vejo o dashboard com a mensagem "([^"]*)"$/) do |msg|
@@ -18,4 +18,8 @@ Então(/^vejo o dashboard com a mensagem "([^"]*)"$/) do |msg|
 
   nav = NavPage.new
   expect(nav.user_menu.text).to eql @user
+end
+
+Então(/^vejo a mensagem "([^"]*)"$/) do |msg|
+  expect(@login.alert.text).to eql msg
 end
