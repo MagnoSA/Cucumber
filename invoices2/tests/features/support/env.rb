@@ -1,8 +1,15 @@
 require 'capybara'
-require 'capybara/cucumber'
+require 'capybara/dsl'
+require 'capybara/rspec/matchers'
 require 'selenium-webdriver'
 require 'rspec'
 require 'site_prism'
+require 'faker'
+
+World(Capybara::DSL)
+World(Capybara::RSpecMatchers)
+
+Faker::Config.locale = 'pt-BR'
 
 Capybara.register_driver :selenium do |app|
                 Capybara::Selenium::Driver.new(app, :browser => :chrome)
