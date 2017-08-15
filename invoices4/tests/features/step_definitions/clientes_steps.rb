@@ -30,7 +30,7 @@ Então(/^vejo esse cliente na lista$/) do
   sleep(5)
 end
 
-### Lista ###
+### Cadastro em Lista ###
 
 Dado(/^que eu tenha uma lista de (\d+) clientes$/) do |quantity|
   arr = (0..quantity.to_i)
@@ -67,23 +67,14 @@ Então(/^vejo esses clientes na lista$/) do
   end
 end
 
-# Delete
+### Delete ###
 
 Quando(/^removo um cliente$/) do
-  login.load
-  steps %Q{
-    Dado que sou "admin" do sistema
-    Quando faço login
-    Então vejo o dashboard logado com a mensagem de bem vindo
-  }
-  customers.load
-
-  @email = 'alexandre_pereira@bol.com.br'
 
   customers.wait_for_items
   
   customers.items.each do | tr|
-    if tr.text.include?(@email)
+    if tr.text.include?(@u.email)
       tr.find('.fa-trash-o').click
       customers.modal_success.click
     end
@@ -91,7 +82,7 @@ Quando(/^removo um cliente$/) do
 end
 
 Então(/^esse cliente não deve ser exibido na lista$/) do
-  customers.search(@email)
-  expect(customers.alert.text).to eql "\"#{@email}\" não encontrado."
+  customers.search(@u.email)
+  expect(customers.alert.text).to eql "\"#{@u.email}\" não encontrado."
   sleep(3)
 end

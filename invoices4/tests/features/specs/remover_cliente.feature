@@ -3,6 +3,10 @@
 @delete
 Funcionalidade: Remover Cliente
 
+Cenario: Pagina de clientes
+    * usuario acessa pagina de clientes
+    
+@new_user
 Cenario: Remover um cliente
 
     Quando removo um cliente
