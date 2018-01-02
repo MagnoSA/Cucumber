@@ -1,0 +1,12 @@
+# YAML Template
+---
+default: --format pretty -p html -p qa -p chrome
+html: --format html --out=reports/result.html
+json: --format json --out=reports/result.json
+dev: ENV_TYPE=dev
+qa: ENV_TYPE=qa
+uat: ENV_TYPE=uat
+chrome: BROWSER=chrome
+firefox: BROWSER=firefox
+edge: BROWSER=edge
+headless: BROWSER=headless
