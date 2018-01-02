@@ -1,0 +1,16 @@
+class FaturasElements < SitePrism::Page
+    set_url '/invoices'
+    element :btn_nova_fatura, 'button[id=dataview-insert-button]'
+    element :btn_pesquisar, 'button[id=dataview-search-button]'
+    element :btn_editar_fatura, 'span[id=edit-button]'
+    element :btn_deletar_fatura, 'span[id=delete-button]'
+    element :btn_confirmar_excluir, 'button[class="btn btn-danger"]'
+    element :btn_salvar, 'button[id=form-submit-button]'
+    element :btn_cancelar, 'a[id=form-cancel-button]'
+    element :inp_pesquisar, 'input[id=dataview-search-input]'
+    element :validar_fatura, 'tbody[id=dataview-table-items]'
+    element :data_vencimento, 'input[name=date]'
+    element :slct_cliente, 'select[name=customerId]'
+    element :link_faturas, 'li a[href="/invoices"]'
+    element :fatura_excluida, 'div[class="alert alert-warning"]'
+end

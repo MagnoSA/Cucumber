@@ -1,0 +1,7 @@
+# YAML Template
+---
+default: --format pretty -p html -p site -p chrome
+html: --format html --out=reports/result.html
+chrome: BROWSER=chrome
+firefox: BROWSER=firefox
+site: ENV_TYPE=url

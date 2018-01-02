@@ -1,0 +1,5 @@
+url: http://ninjainvoices.herokuapp.com
+users:
+  admin:
+    email: 'kato.danzo@qaninja.com.br'
+    senha: 'secret'
